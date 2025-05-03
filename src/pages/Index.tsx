@@ -9,6 +9,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import ChatWidget from '@/components/ChatWidget';
 
 const Index = () => {
   // Handle smooth scrolling for anchor links
@@ -63,6 +64,9 @@ const Index = () => {
       </main>
       
       <Footer />
+      
+      {/* Chat Widget */}
+      <ChatWidget />
     </div>
   );
 };
