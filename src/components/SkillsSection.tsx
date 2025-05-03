@@ -189,7 +189,7 @@ const SkillsSection = () => {
               >
                 <CardContent className="p-6 flex flex-col items-center text-center">
                   <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center mb-4 group-hover:animate-pulse-neon">
-                    {React.cloneElement(skill.icon, { size: 32 })}
+                    {skill.icon}
                   </div>
                   <h4 className="text-xl font-medium mb-2">{skill.name}</h4>
                   <p className="text-gray-400 text-sm">{skill.description}</p>
