@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import CVDownloadSection from '@/components/CVDownloadSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
@@ -42,6 +43,10 @@ const Index = () => {
         
         <ScrollReveal>
           <AboutSection />
+        </ScrollReveal>
+        
+        <ScrollReveal delay={50}>
+          <CVDownloadSection />
         </ScrollReveal>
         
         <ScrollReveal delay={100}>

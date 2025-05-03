@@ -22,6 +22,7 @@ const Navbar = () => {
   
   const navLinks = [
     { name: 'About', href: '#about' },
+    { name: 'Resume', href: '#cv-download' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' }
