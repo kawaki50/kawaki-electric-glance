@@ -1,9 +1,47 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
+  const [displayedName, setDisplayedName] = useState('');
+  const [displayedDescription, setDisplayedDescription] = useState('');
+  const [nameComplete, setNameComplete] = useState(false);
+  
+  const fullName = 'KAWAKI';
+  const fullDescription = 'Full-Stack Developer | Crafting digital experiences with precision and innovation';
+
+  useEffect(() => {
+    let nameIndex = 0;
+    const nameTimer = setInterval(() => {
+      if (nameIndex < fullName.length) {
+        setDisplayedName(fullName.slice(0, nameIndex + 1));
+        nameIndex++;
+      } else {
+        clearInterval(nameTimer);
+        setNameComplete(true);
+      }
+    }, 200);
+
+    return () => clearInterval(nameTimer);
+  }, []);
+
+  useEffect(() => {
+    if (nameComplete) {
+      let descIndex = 0;
+      const descTimer = setInterval(() => {
+        if (descIndex < fullDescription.length) {
+          setDisplayedDescription(fullDescription.slice(0, descIndex + 1));
+          descIndex++;
+        } else {
+          clearInterval(descTimer);
+        }
+      }, 50);
+
+      return () => clearInterval(descTimer);
+    }
+  }, [nameComplete]);
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -17,10 +55,16 @@ const HeroSection = () => {
       
       <div className="z-10 text-center px-4 animate-fade-in">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter text-white">
-          <span className="neon-text text-neon">KAWAKI</span>
+          <span className="neon-text text-neon relative">
+            {displayedName}
+            <span className="animate-pulse">|</span>
+          </span>
         </h1>
-        <h2 className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">
-          Full-Stack Developer | Crafting digital experiences with precision and innovation
+        <h2 className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto min-h-[3rem]">
+          {displayedDescription}
+          {nameComplete && displayedDescription.length < fullDescription.length && (
+            <span className="animate-pulse">|</span>
+          )}
         </h2>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
