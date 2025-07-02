@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+import AnimatedBackground from './AnimatedBackground';
 
 const HeroSection = () => {
   const [displayedName, setDisplayedName] = useState('');
@@ -51,9 +52,12 @@ const HeroSection = () => {
   
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
-      <div className="absolute w-full h-full bg-[radial-gradient(circle,rgba(57,255,20,0.05)_0%,rgba(0,0,0,0)_70%)]"></div>
+      {/* Animated Background */}
+      <AnimatedBackground />
       
-      <div className="z-10 text-center px-4 animate-fade-in">
+      <div className="absolute w-full h-full bg-[radial-gradient(circle,rgba(57,255,20,0.05)_0%,rgba(0,0,0,0)_70%)]" style={{ zIndex: 2 }}></div>
+      
+      <div className="z-10 text-center px-4 animate-fade-in" style={{ zIndex: 3 }}>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter text-white">
           <span className="neon-text text-neon relative">
             {displayedName}
@@ -85,7 +89,7 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-0 right-0 mx-auto w-10 animate-float flex justify-center">
+      <div className="absolute bottom-10 left-0 right-0 mx-auto w-10 animate-float flex justify-center" style={{ zIndex: 3 }}>
         <Button 
           variant="ghost" 
           size="icon" 
