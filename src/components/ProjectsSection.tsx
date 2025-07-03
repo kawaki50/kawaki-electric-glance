@@ -16,36 +16,44 @@ interface Project {
 const ProjectsSection = () => {
   const projects: Project[] = [
     {
-      title: "Quantum Task Manager",
-      description: "A sophisticated task management application with real-time updates, user authentication, and a responsive UI. Features drag-and-drop functionality and data visualization.",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Chart.js"],
-      demoUrl: "#",
-      githubUrl: "#",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+      title: "MEUBLEA - Furniture Store",
+      description: "A modern furniture e-commerce platform with a sleek design, and a shopping cart. Features product filtering and a secure checkout process.",
+      technologies: ["HTML", "CSS","JavaScript", "BOOTSTRAP"],
+      demoUrl: "https://meublea.netlify.app/",
+      githubUrl: "https://github.com/kawaki50/MEUBLEA",
+      image: "/public/img/MEUBLEA.png"
     },
     {
-      title: "Echo E-commerce Platform",
-      description: "A complete e-commerce solution with inventory management, payment processing, and an admin dashboard. Includes user reviews and recommendation algorithms.",
-      technologies: ["Vue.js", "Express", "PostgreSQL", "Stripe API", "JWT Auth"],
+      title: "ARMAZON - Arme Store",
+      description: "An advanced e-commerce application for firearms, featuring user authentication, product reviews, and a secure payment gateway.",
+      technologies: ["HTML", "CSS", "SCSS","JavaScript","JQUERY", "BOOTSTRAP", "PHP", "MySQL"],
       demoUrl: "#",
-      githubUrl: "#",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+      githubUrl: "https://github.com/kawaki50/ARMAZONE",
+      image: "/public/img/ARMAZONE.png"
     },
     {
-      title: "Nebula Social Network",
-      description: "A modern social network application with real-time messaging, user profiles, and content sharing. Features a sophisticated friend recommendation system.",
-      technologies: ["TypeScript", "Next.js", "GraphQL", "Firebase", "TailwindCSS"],
+      title: "TOOLHUB - Tool Store",
+      description: "A comprehensive tool e-commerce site with a user-friendly interface, login user, cart management, advanced search functionality, and a robust admin panel for inventory management.",
+      technologies: ["REACT JS", "VITE", "CSS", "PHP", "MySQL"],
       demoUrl: "#",
-      githubUrl: "#",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+      githubUrl: "https://github.com/kawaki50/TOOLHUB",
+      image: "/public/img/TOOLHUB.png"
     },
     {
-      title: "Horizon Weather App",
-      description: "A sleek weather forecasting application with location tracking, historical data visualization, and severe weather alerts. Features a minimalist interface.",
-      technologies: ["React Native", "Redux", "Weather API", "Geolocation", "D3.js"],
+      title: "LA PRIMEUR - Primeur Store",
+      description: "A fresh produce e-commerce platform with a vibrant design, featuring product categories, a shopping cart, and a secure checkout process.",
+      technologies: ["HTML", "CSS", "JavaScript","JQUERY", "BOOTSTRAP", "PHP", "MySQL"],
       demoUrl: "#",
-      githubUrl: "#",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1"
+      githubUrl: "https://github.com/kawaki50/LA-PRIMEUR",
+      image: "/public/img/LA PRIMEUR.png"
+    },
+    {
+      title: "MEPORT - Travel & booking website",
+      description: "A travel booking website that allows users to search for and book flights, hotels, and match tickets. It features a user-friendly interface, real-time availability, and secure payment processing.",
+      technologies: ["HTML", "CSS", "JavaScript","JQUERY", "BOOTSTRAP","AJAX", "PHP", "MySQL", "API", "COMPOSER", "Stripe"],
+      demoUrl: "#",
+      githubUrl: "https://github.com/kawaki50/MEPORT",
+      image: "/public/img/MEPORT.png"
     }
   ];
 
