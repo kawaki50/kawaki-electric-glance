@@ -26,7 +26,7 @@ const CVDownloadSection = () => {
                 
                 <Button 
                   className="bg-neon text-black hover:bg-neon/90 py-4 px-6 text-lg gap-2 animate-glow w-full"
-                  onClick={() => window.open('/public/AYMAN AIT MERIEM (CV).pdf', '_blank')}
+                  onClick={() => window.open('/public/AIT MERIEM AYMAN (CV2).pdf', '_blank')}
                 >
                   <FileDown size={20} />
                   Download Resume
