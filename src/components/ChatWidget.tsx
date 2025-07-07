@@ -5,6 +5,8 @@ import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet';
 import { ScrollArea } from './ui/scroll-area';
 import { Input } from './ui/input';
+import { MessageService } from '@/lib/messageService';
+import { ChatMessage } from '@/lib/supabase';
 
 interface Message {
   id: number;
@@ -18,6 +20,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [sessionId, setSessionId] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   // Auto-scroll to bottom when new messages arrive
@@ -27,11 +30,18 @@ const ChatWidget = () => {
     }
   }, [messages]);
 
+  // Initialiser la session de chat
+  useEffect(() => {
+    if (!sessionId) {
+      setSessionId(MessageService.generateSessionId());
+    }
+  }, [sessionId]);
+
   const toggleChat = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (newMessage.trim() === '') return;
@@ -48,27 +58,48 @@ const ChatWidget = () => {
     setNewMessage('');
     setIsTyping(true);
     
-    // Simulate "typing" delay before response
-    setTimeout(() => {
+    try {
+      // Sauvegarder le message utilisateur dans la base de données
+      await MessageService.sendChatMessage({
+        text: newMessage,
+        sender: 'user',
+        session_id: sessionId,
+        timestamp: new Date().toISOString()
+      });
+      
+      // Simulate "typing" delay before response
+      setTimeout(async () => {
+        setIsTyping(false);
+        const botResponses = [
+          "Thanks for your message! I'll get back to you soon. 🚀",
+          "I appreciate you reaching out! I'll respond as soon as possible. ✨",
+          "Thanks for connecting! I'm currently working on projects but will reply shortly. 💻",
+          "Got your message! I'm coding away but will get back to you soon. 🔥"
+        ];
+        
+        const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+        
+        const kawakiMessage: Message = {
+          id: Date.now() + 1,
+          text: randomResponse,
+          sender: 'kawaki',
+          timestamp: new Date()
+        };
+        
+        setMessages(prev => [...prev, kawakiMessage]);
+        
+        // Sauvegarder la réponse du bot dans la base de données
+        await MessageService.sendChatMessage({
+          text: randomResponse,
+          sender: 'kawaki',
+          session_id: sessionId,
+          timestamp: new Date().toISOString()
+        });
+      }, 2000);
+    } catch (error) {
+      console.error('Error sending message:', error);
       setIsTyping(false);
-      const botResponses = [
-        "Thanks for your message! I'll get back to you soon. 🚀",
-        "I appreciate you reaching out! I'll respond as soon as possible. ✨",
-        "Thanks for connecting! I'm currently working on projects but will reply shortly. 💻",
-        "Got your message! I'm coding away but will get back to you soon. 🔥"
-      ];
-      
-      const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
-      
-      const kawakiMessage: Message = {
-        id: Date.now() + 1,
-        text: randomResponse,
-        sender: 'kawaki',
-        timestamp: new Date()
-      };
-      
-      setMessages(prev => [...prev, kawakiMessage]);
-    }, 2000);
+    }
   };
 
   const formatTime = (date: Date) => {

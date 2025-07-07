@@ -71,3 +71,8 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+
+//Spabase
+URL : https://yamffxyawlbhrdiyqeow.supabase.co
+API KEY : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlhbWZmeHlhd2xiaHJkaXlxZW93Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MjYxODMsImV4cCI6MjA2NzUwMjE4M30.P1FvHkYtDcqbdIvXbWQHE-SvGzEj7TGN67xhcWfSZCM

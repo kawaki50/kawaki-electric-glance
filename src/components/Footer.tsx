@@ -13,21 +13,23 @@ const Footer = () => {
           
           <div className="flex justify-center space-x-6 mb-8">
             <a 
-              href="#" 
+              target="_blank"
+              href="https://github.com/kawaki50" 
               className="text-gray-400 hover:text-neon transition-colors"
               aria-label="GitHub"
             >
               <Github size={24} />
             </a>
             <a 
-              href="#" 
+              target="_blank"
+              href="https://www.linkedin.com/in/ayman-ait-meriem" 
               className="text-gray-400 hover:text-neon transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={24} />
             </a>
             <a 
-              href="mailto:contact@kawaki.dev" 
+              href="mailto:aymanaitmeriem50@gmail.com" 
               className="text-gray-400 hover:text-neon transition-colors"
               aria-label="Email"
             >
