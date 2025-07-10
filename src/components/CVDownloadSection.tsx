@@ -49,7 +49,7 @@ const CVDownloadSection = () => {
                 
                 <Button 
                   className="bg-neon text-black hover:bg-neon/90 py-4 px-6 text-lg gap-2 animate-glow w-full"
-                  onClick={() => window.open('/portfolio-graphic.pdf', '_blank')}
+                  onClick={() => window.open('/portfolio graphic.pdf', '_blank')}
                 >
                   <Image size={20} />
                   Download Portfolio
